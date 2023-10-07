@@ -1,0 +1,52 @@
+{% include 'site/header.html' %}
+
+<div class="subpage-tittle">
+    <p>
+        <span>
+            {{data.title}}
+        </span>
+    </p>
+</div>
+
+<section class="layout_padding other_bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-12 team-tittle align-self-center">
+                <h2>
+                    Trabajar con nosotros  experiencia diferente 
+                </h2>
+                <p>
+                    Adoptamos un enfoque único al seleccionar a líderes creativos para cada cliente, lo que significa que no existe una solución única para todos. Esta estrategia garantiza que obtenga el profundo conocimiento que solo proviene de la experiencia en su industria específica, todo dentro de un entorno eficiente y colaborativo
+                </p>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="row justify-content-left team-desc">
+                    <img src="{{ url_for('static', filename='images/networking-description-2.jpg') }}" class="img-fluid rounded-circle team-img" alt="">
+                    <ul>
+                        <li>Nombre</li>
+                        <li>Puesto</li>
+                    </ul>                   
+                </div>
+                <hr class="my-4">
+                 <div class="row justify-content-left team-desc">
+                    <img src="{{ url_for('static', filename='images/networking-description-2.jpg') }}" class="img-fluid rounded-circle team-img" alt="">
+                    <ul>
+                        <li>Nombre</li>
+                        <li>Puesto</li>
+                    </ul>  
+                </div>
+                <hr class="my-4">
+                 <div class="row justify-content-left team-desc">
+                    <img src="{{ url_for('static', filename='images/networking-description-2.jpg') }}" class="img-fluid rounded-circle team-img" alt="">
+                    <ul>
+                        <li>Nombre</li>
+                        <li>Puesto</li>
+                    </ul>   
+                </div>
+                <hr class="my-4">
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include "site/footer.html" %}

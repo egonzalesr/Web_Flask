@@ -1,0 +1,125 @@
+{% include 'site/header.html' %}
+<div class="subpage-tittle">
+    <p>
+        <span>
+            {{data.title}}
+        </span>
+    </p>
+</div>
+<section class="about_section layout_padding other_bg">
+
+    <div class="container">
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-5 px-0">
+                <div class="heading_container  heading_center">
+                    <h2>
+                        Beneficios
+                    </h2>
+                    <img class="shadow-img" src="{{ url_for('static', filename='images/networking-info.png') }}"
+                        alt="" />
+                </div>
+            </div>
+        </div>
+        <hr class="my-4">
+        <div class="row justify-content-between ">
+            <div class="col-md-6 px-0 mt-3">
+                <h2>¿Qué ofrecemos?</h2>
+                <br><br>
+                <p>
+                    En <b>[Nombre de la Empresa]</b>, nos especializamos en proporcionar soluciones integrales de redes
+                    diseñadas para satisfacer las necesidades tecnológicas de su empresa. Nuestro equipo de expertos en
+                    redes está comprometido en ofrecer soluciones de vanguardia que optimizan la conectividad, mejoran
+                    la seguridad y permiten el crecimiento de su negocio.
+                </p>
+            </div>
+            <div class="col-md-5 px-0">
+                <img class="img-fluid rounded shadow-img"
+                    src="{{ url_for('static', filename='images/networking-description-2.jpg') }}" alt="">
+            </div>
+        </div>
+        <hr class="my-4">
+    </div>
+
+</section>
+
+<!--More services-->
+
+<section class="row-bg">
+    <div class="container mt-4 mb-4">
+        <div class="row">
+            <div class="col-md-2 text-left other-services">
+                <h3>Todos</h3>
+                <h3>Nuestros</h3>
+                <h2>Servicios</h2>
+            </div>
+            <div class="col-md-2 text-center mt-2">
+                <a class="index-services-btn " href="{{ url_for('virtualizacion') }}">
+                    <div class="box index-services sub-pages-btn">
+                        <div class="img-box">
+                            <img class="subpage-img"
+                                src="{{ url_for('static', filename='images/virtualization-bw.svg') }}" alt="" />
+
+                        </div>
+                        <h6 class="mt-1">
+                            Virtualización
+                        </h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2 mt-2">
+                <a class="index-services-btn " href="{{ url_for('computo') }}">
+                    <div class="box index-services text-center sub-pages-btn">
+                        <div class="img-box">
+                            <img class="subpage-img" src="{{ url_for('static', filename='images/computing-bw.svg') }}"
+                                alt="" />
+                        </div>
+                        <h6 class="mt-1">
+                            Cómputo
+                        </h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2 mt-2">
+                <a class="index-services-btn " href="{{ url_for('datacenter') }}">
+                    <div class="box index-services text-center sub-pages-btn">
+                        <div class="img-box" ;">
+                            <img class="subpage-img"
+                                src="{{ url_for('static', filename='images/datacenter-color.svg') }}" alt="" />
+                        </div>
+                        <h6 class="mt-1">
+                            Data Center
+                        </h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2 mt-2">
+                <a class="index-services-btn" href="{{ url_for('server') }}">
+                    <div class="box index-services text-center sub-pages-btn">
+                        <div class="img-box">
+                            <img class="subpage-img" src="{{ url_for('static', filename='images/server-bw.svg') }}"
+                                alt="" />
+                        </div>
+                        <h6 class="mt-1">
+                            Servidores
+                        </h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2 mt-2">
+                <a class="index-services-btn" href="{{ url_for('tic') }}">
+                    <div class="box index-services text-center sub-pages-btn">
+                        <div class="img-box">
+                            <img class="subpage-img" src="{{ url_for('static', filename='images/tic-bw.svg') }}"
+                                alt="" />
+                        </div>
+                        <h6 class="mt-1">
+                            Soporte TIC
+                        </h6>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include "site/footer.html" %}

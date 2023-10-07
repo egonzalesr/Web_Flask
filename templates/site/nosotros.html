@@ -1,0 +1,126 @@
+{% include 'site/header.html' %}
+
+<div class="subpage-tittle">
+    <p>
+        <span>
+            {{data.title}}
+        </span>
+    </p>
+</div>
+
+<!-- about section -->
+<section class="about_section layout_padding other_bg">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-md-5 px-0">
+
+                <div class="heading_container">
+                    <h2>
+                        Quienes somos
+                        <img class="vision-img" src="{{ url_for('static', filename='images/about.svg') }}" alt="" />
+                    </h2>
+                    <p>
+                        Somos una empresa líder en tecnología de la información dedicada a transformar el
+                        paisaje digital de las empresas y organizaciones. En <b>[Nombre de la empresa]</b>,
+                        fusionamos
+                        experiencia y creatividad para impulsar la innovación tecnológica y ofrecer soluciones que
+                        hacen avanzar su negocio.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-5 px-0">
+                <div class="img_container">
+                    <div class="img-box">
+                        <img class="img-fluid rounded shadow-img"
+                            src="{{ url_for('static', filename='images/about.jpg') }}" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--    Misión y Visión     -->
+        <div class="row justify-content-between mt-5">
+            <div class="col-md-5 px-0">
+                <div class="detail-box">
+                    <div class="heading_container ">
+                        <h2>
+                            Nuestra Visión
+                            <img class="vision-img" src="{{ url_for('static', filename='images/vision.svg') }}"
+                                alt="" />
+                        </h2>
+                        <p>
+                            Nuestra visión es seguir impulsando la innovación y liderar la revolución tecnológica en
+                            curso. Creemos en la constante evolución y adaptación para ofrecer soluciones de vanguardia
+                            que preparen a nuestros clientes para el futuro digital.
+
+                            En <b>[Nombre de la empresa]</b>, estamos comprometidos con su éxito. Permítanos ser su
+                            socio
+                            tecnológico confiable y llevar su empresa al siguiente nivel.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5 px-0">
+                <div class="detail-box">
+                    <div class="heading_container ">
+                        <h2>
+                            Nuestra Misión
+                            <img class="vision-img" src="{{ url_for('static', filename='images/mision.svg') }}"
+                                alt="" />
+                        </h2>
+                        <p>
+                            Nuestra misión es brindar soluciones tecnológicas inteligentes y personalizadas que permitan
+                            a nuestros clientes alcanzar sus objetivos de manera más eficiente y efectiva. Nos
+                            esforzamos por ser socios estratégicos de confianza, ayudándoles a navegar por el complejo
+                            mundo de la tecnología de la información y adaptarse a las cambiantes demandas del mercado.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--    calidad y Equipo     -->
+        <div class="row justify-content-between mt-5">
+            <div class="col-md-5 px-0">
+                <div class="detail-box">
+                    <div class="heading_container ">
+                        <h2>
+                            Nuestro compromiso con la calidad
+                            <img class="vision-img" src="{{ url_for('static', filename='images/quality.svg') }}"
+                                alt="" />
+                        </h2>
+                        <p>
+                            En <b>[Nombre de la empresa]</b>, la calidad es nuestra máxima prioridad. Nos esforzamos por
+                            cumplir con los más altos estándares en cada proyecto que emprendemos. Nuestra atención
+                            meticulosa al detalle y nuestro enfoque en la excelencia nos distinguen como líderes en el
+                            campo de la tecnología de la información.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5 px-0">
+                <div class="detail-box">
+                    <div class="heading_container ">
+                        <h2>
+                            Nuestro Equipo
+                            <img class="vision-img" src="{{ url_for('static', filename='images/team.svg') }}" alt="" />
+                        </h2>
+                        <p>
+                            En el corazón de nuestro éxito se encuentra nuestro talentoso equipo de expertos en TI.
+                            Nuestros ingenieros, desarrolladores y consultores están altamente capacitados y
+                            comprometidos con mantenerse a la vanguardia de las últimas tendencias tecnológicas.
+                            Trabajamos juntos con pasión y determinación para superar los desafíos y encontrar
+                            soluciones innovadoras.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- end about section -->
+
+{% include "site/footer.html" %}

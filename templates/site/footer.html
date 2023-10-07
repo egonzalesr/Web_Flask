@@ -1,0 +1,145 @@
+<!-- info section -->
+<section class="info_section ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="info_logo">
+                    <a class="navbar-brand" href="{{ url_for('index') }}">
+                        <span>
+                            DigitalMinds
+                        </span>
+                    </a>
+                    <div class="info_links">
+                        <ul>
+                            <li>
+                                <a href="{{ url_for('virtualizacion') }}">
+                                    VIRTUALIZACIÓN
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('redes') }}">
+                                    REDES
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('computo') }}">
+                                    CÓMPUTO
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('datacenter') }}">
+                                    DATA CENTER
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('server') }}">
+                                    SERVIDORES
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('tic') }}">
+                                    SOPORTE TIC
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="info_links">
+                    <h5>
+                        Links Utiles
+                    </h5>
+                    <ul>
+                        <li>
+                            <a href="{{ url_for('nosotros') }}">
+                                NOSOTROS
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('equipo') }}">
+                                NUESTRO EQUIPO
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="info_info">
+                    <h5>
+                        CONTACTANOS
+                    </h5>
+                </div>
+                <div class="info_contact">
+                    <a href="https://maps.app.goo.gl/pCYP3XSF3sF4P8Ko8" target="_blank">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <span>
+                            Lorem ipsum dolor sit amet,
+                        </span>
+                    </a>
+                    <a href="tel:+51937803858" class="">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <span>
+                            Llama : +51 937803858
+                        </span>
+                    </a>
+                    <a href="mailto:elliotjesus87@gmail.com" class="">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                        <span>
+                            elliotjesus87@gmail.com
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="info_form ">
+                    <h4>
+                        Suscribite a nuestro boletín
+                    </h4>
+                    <p>
+                        ¡Solo nuestras últimas noticias!
+                    </p>
+                    <form action="#">
+                        <input type="email" placeholder="Ingresa tu email">
+                        <button>
+                            Suscribete
+                        </button>
+                    </form>
+                    <div class="social_box">
+                        <a href="#">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-youtube" aria-hidden="true"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- end info_section -->
+</div>
+
+<!-- footer section -->
+<footer class="container-fluid footer_section">
+    <p>
+        &copy; <span id="currentYear"></span> Todos los derechos reservados
+        <a href="{{ url_for('index') }}">DigitalMinds</a>
+    </p>
+</footer>
+<!-- footer section -->
+<!-- Bootstrap JavaScript Libraries -->
+<script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}/"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+<script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+</body>
+
+</html>

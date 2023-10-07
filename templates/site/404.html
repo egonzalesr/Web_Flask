@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página no Encontrada</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/404.css') }}">
+</head>
+
+<body>
+
+    <img src="https://i.ibb.co/W6tgcKQ/softcodeon.gif">
+    <h1 class="error-text">Ooops, no podemos encontrar lo que estás buscando.</h1>
+    <p class="text">Porfavor verifica si la dirección es correcta. O...</p>
+    <div class="btn1">
+        <a class="error" href="{{ url_for('index') }}">Regresa al Inicio</a>
+    </div>
+
+
+</body>
+
+</html>
