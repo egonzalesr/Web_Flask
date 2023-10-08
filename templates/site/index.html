@@ -416,23 +416,23 @@ end client section -->
         <div class="">
             <div class="row">
                 <div class="col-md-7 mx-auto">
-                    <form action="#">
+                    <form method="POST" action="#">
                         <div class="contact_form-container">
                             <div>
                                 <div>
-                                    <input type="text" placeholder="Nombre completo" />
+                                    <input class="rounded" id="name" type="text" placeholder="Nombre completo" required />
                                 </div>
                                 <div>
-                                    <input type="email" placeholder="Email " />
+                                    <input class="rounded" id="mail" type="email" placeholder="Email " required />
                                 </div>
                                 <div>
-                                    <input type="text" placeholder="Numero de telefono" />
+                                    <input class="rounded" id="phone" type="text" placeholder="Numero de telefono" />
                                 </div>
-                                <div class="">
-                                    <input type="text" placeholder="Mensaje" class="message_input" />
+                                <div>
+                                    <input id="message" type="text" placeholder="Mensaje" class="message_input rounded" />
                                 </div>
-                                <div class="btn-box ">
-                                    <button type="submit">
+                                <div class="btn-box">
+                                    <button class="rounded" type="submit">
                                         Enviar
                                     </button>
                                 </div>
