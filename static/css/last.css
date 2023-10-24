@@ -150,7 +150,6 @@
     transition: background-color 0.3s, transform 0.3s;
 }
 
-
 .scroll-top-btn:hover {
     transform: scale(1.1);
 }

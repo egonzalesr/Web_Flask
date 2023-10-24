@@ -1,15 +1,16 @@
 from flask import Flask, render_template, request
 from flask_mail import Mail, Message
+from decouple import config
 
 
 app = Flask(__name__)
 
 #  Configuración de Flask-Mail para enviar correos electrónicos #
 """
-app.config["MAIL_SERVER"] = "smtp.example.com"  # Reemplaza  servidor SMTP
-app.config["MAIL_PORT"] = 587  # Puerto SMTP
-app.config["MAIL_USERNAME"] = "mail@mail.com"  # Dirección de correo electrónico
-app.config["MAIL_PASSWORD"] = "password"  # Contraseña de correo electrónico
+app.config["MAIL_SERVER"] = config('MAIL_SERVER')
+app.config["MAIL_PORT"] = config('MAIL_PORT')
+app.config["MAIL_USERNAME"] = config('MAIL_USERNAME')
+app.config["MAIL_PASSWORD"] = config('MAIL_PASSWORD')
 app.config["MAIL_USE_TLS"] = True
 app.config["MAIL_USE_SSL"] = False
 
@@ -40,8 +41,7 @@ def contact():
 @app.route("/", methods=["GET", "POST"])
 def index():
     data = {"title": "Inicio", "page": "index"}
-    # contact()
-    return render_template("site/index.html", data=data)
+    return render_template("site/index.html", data=data, form_data=None)
 
 
 @app.route("/nosotros", methods=["GET", "POST"])
