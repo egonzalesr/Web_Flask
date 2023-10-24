@@ -153,3 +153,11 @@
 .scroll-top-btn:hover {
     transform: scale(1.1);
 }
+
+.validate-ok {
+    border: 3px solid green !important;
+}
+
+.validate-warning {
+    border: 3px solid red !important;
+}
