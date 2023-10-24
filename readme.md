@@ -27,6 +27,12 @@
 4. Instalar dependencias:
     - pip install > requirements.txt
 
+5. Crear un archivo .env con las variables para el servidor SMTP
+    -MAIL_SERVER      #Reemplazar por el Servidor SMTP
+    -MAIL_PORT        #Puerto SMTP
+    -MAIL_USERNAME    #Dirección de correo electrónico de Salida
+    -MAIL_PASSWORD    #Contraseña de correo electrónico 
+
 
 5. Iniciar la aplicación:
     - Para Windows:
