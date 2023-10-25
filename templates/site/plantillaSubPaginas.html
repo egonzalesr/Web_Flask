@@ -1,0 +1,57 @@
+{% include 'site/header.html' %}
+<div class="subpage-tittle">
+    <p>
+        <span>
+            {{data.title}}
+        </span>
+    </p>
+</div>
+<section class="about_section layout_padding other_bg">
+
+    <div class="container">
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-12">
+                <div class="heading_container heading_center">
+                    <h2>
+                        Beneficios
+                    </h2>
+                    {% block imgInfo %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+        <hr class="my-4">
+        <div class="row justify-content-between ">
+            <div class="col-md-6 mt-3">
+                <h2>¿Qué ofrecemos?</h2>
+                <br><br>
+                <p>
+                    {% block info %}
+                    {% endblock %}
+                </p>
+            </div>
+            <div class="col-md-5">
+                {% block imgDescription %}
+                {% endblock %}
+            </div>
+        </div>
+        <hr class="my-4">
+    </div>
+</section>
+<!--More services-->
+
+<section class="row-bg">
+    <div class="container mt-4 mb-4">
+        <div class="row">
+            <div class="col-md-2 text-left other-services">
+                <h3>Todos</h3>
+                <h3>Nuestros</h3>
+                <h2>Servicios</h2>
+            </div>
+            {% block moreServices %}
+            {% endblock %}
+        </div>
+    </div>
+</section>
+
+{% include "site/footer.html" %}
