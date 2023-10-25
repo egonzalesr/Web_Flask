@@ -5,6 +5,8 @@ from decouple import config
 
 app = Flask(__name__)
 
+app.secret_key = config('SECRET_KEY')
+
 #  Configuración de Flask-Mail para enviar correos electrónicos #
 
 app.config["MAIL_SERVER"] = config('MAIL_SERVER')
@@ -14,6 +16,7 @@ app.config["MAIL_PASSWORD"] = config('MAIL_PASSWORD')
 app.config["MAIL_USE_TLS"] = True
 app.config["MAIL_USE_SSL"] = False
 
+mail = Mail(app)
 
 
 # Main Pages #
@@ -30,7 +33,7 @@ def index():
         try:
             msg = Message('Solicitud de contacto', sender='tu_correo_electronico', recipients=['correo_destino'])
             msg.body = f'Nombre: {name}\nEmail: {email}\nTeléfono: {phone}\nMensaje: {message}'
-            app.send(msg)
+            mail.send(msg)
             flash("Solicitud enviada con éxito", "success")
         except Exception as e:
             flash("No se pudo enviar el mensaje", "error")
