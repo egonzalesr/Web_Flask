@@ -3,21 +3,26 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página no Encontrada</title>
+    <title>Error 404</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/404.css') }}">
 </head>
 
 <body>
-
-    <img src="https://i.ibb.co/W6tgcKQ/softcodeon.gif">
-    <h1 class="error-text">Ooops, no podemos encontrar lo que estás buscando.</h1>
-    <p class="text">Porfavor verifica si la dirección es correcta. O...</p>
-    <div class="btn1">
-        <a class="error" href="{{ url_for('index') }}">Regresa al Inicio</a>
-    </div>
-
-
+    <section class="notFound">
+        <div class="img">
+            <img src="https://assets.codepen.io/5647096/backToTheHomepage.png" alt="Back to the Homepage" />
+            <img src="https://assets.codepen.io/5647096/Delorean.png" alt="El Delorean, El Doc y Marti McFly" />
+        </div>
+        <div class="text">
+            <h1>404</h1>
+            <h2>PAGINA NO ENCONTRADA</h2>
+            <h3>¿REGRESAR A CASA?</h3>
+            <a href="{{ url_for('index') }}" class="yes">SI</a>
+            <a href="https://www.youtube.com/watch?v=G3AfIvJBcGo">NO</a>
+        </div>
+    </section>
 </body>
 
 </html>
