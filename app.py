@@ -1,44 +1,51 @@
 from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import jsonify
 from flask_mail import Mail, Message
 from decouple import config
+import smtplib
+from email.mime.text import MIMEText
 
 
 app = Flask(__name__)
 
 app.secret_key = config('SECRET_KEY')
 
-#  Configuración de Flask-Mail para enviar correos electrónicos #
-
-app.config["MAIL_SERVER"] = config('MAIL_SERVER')
-app.config["MAIL_PORT"] = config('MAIL_PORT')
-app.config["MAIL_USERNAME"] = config('MAIL_USERNAME')
-app.config["MAIL_PASSWORD"] = config('MAIL_PASSWORD')
-app.config["MAIL_USE_TLS"] = True
-app.config["MAIL_USE_SSL"] = False
-
-mail = Mail(app)
+#Mailer Configuration
+smtp_server = config('MAIL_SERVER')
+smtp_port = config('MAIL_PORT')
+smtp_username = config('MAIL_USERNAME')
+smtp_password = config('MAIL_PASSWORD')
 
 
 # Main Pages #
 @app.route("/", methods=["GET", "POST"])
 def index():
     data = {"title": "Inicio", "page": "index"}
-
+    response_data = {"success": False, "message": "Solicitud Enviada con éxito"}
     if request.method == "POST":
         name = request.form.get("name")
         email = request.form.get("mail")
         phone = request.form.get("phone")
         message = request.form.get("message")
+    
+        msg = MIMEText(message)
+        msg["Subject"] = f"Solicitud de contacto de {name}"
+        msg["From"] = smtp_username
+        msg["To"] = email
 
         try:
-            msg = Message('Solicitud de contacto', sender='tu_correo_electronico', recipients=['correo_destino'])
-            msg.body = f'Nombre: {name}\nEmail: {email}\nTeléfono: {phone}\nMensaje: {message}'
-            mail.send(msg)
-            flash("Solicitud enviada con éxito", "success")
+            server = smtplib.SMTP(smtp_server, smtp_port)
+            server.starttls()
+            server.login(smtp_username, smtp_password)
+            server.sendmail(smtp_username, [email], msg.as_string())
+            server.quit()
+            response_data["success"] = True
         except Exception as e:
-            flash("No se pudo enviar el mensaje", "error")
+            error_message = str(e)
+        
+        return jsonify(response_data) 
 
-        return redirect(url_for("index"))
+         
 
     return render_template("site/index.html", data=data)
 
@@ -52,7 +59,7 @@ def nosotros():
 
 @app.route("/contacto", methods=["GET", "POST"])
 def contacto():
-    data = {"title": "Contactanos", "page": "contacto"}  
+    data = {"title": "Contactanos", "page": "contacto"} 
 
     if request.method == "POST":
         name = request.form.get("name")
@@ -60,16 +67,22 @@ def contacto():
         phone = request.form.get("phone")
         message = request.form.get("message")
 
-        try:
-            msg = Message('Solicitud de contacto', sender='tu_correo_electronico', recipients=['correo_destino'])
-            msg.body = f'Nombre: {name}\nEmail: {email}\nTeléfono: {phone}\nMensaje: {message}'
-            app.send(msg)
-            flash("Solicitud enviada con éxito", "success")
-        except Exception as e:
-            flash("No se pudo enviar el mensaje", "error")
+        msg = MIMEText(message)
+        msg["Subject"] = f"Solicitud de contacto de {name}"
+        msg["From"] = smtp_username
+        msg["To"] = email
 
-        return redirect(url_for("contacto"))
-      
+        try:
+            server = smtplib.SMTP(smtp_server, smtp_port)
+            server.starttls()
+            server.login(smtp_username, smtp_password)
+            server.sendmail(smtp_username, [email], msg.as_string())
+            server.quit()
+        except Exception as e:
+            error_message = str(e)
+
+        response_data = {"success": True, "message": "Solicitud Enviada con éxito"}
+        return jsonify(response_data)   
     return render_template("site/contacto.html", data=data)
 
 
