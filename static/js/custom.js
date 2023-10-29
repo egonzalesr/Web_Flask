@@ -42,91 +42,105 @@ const $phone = document.getElementById('phone');
 const $message = document.getElementById('message');
 
 
-$phone.addEventListener('keypress', (event) => {
+$form.addEventListener('submit', function (event) {
   event.preventDefault();
-  let codigoKey = event.keyCode;
-  let valorKey = String.fromCharCode(codigoKey);
-  let telefonoActual = $phone.value;
-
-  if (telefonoActual.length >= 0 && telefonoActual.length < 15) {
-    if (!isNaN(valorKey) || valorKey === '0' || valorKey === '+') {
-      $phone.value += valorKey;
-    }
-  }
-});
-
-
-$form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  validateName($name.value)
-  validateEmail($email.value)
-  validatePhone($phone.value)
-  validateMessage($message.value)
-
-  if (formIsValid()) {
-    Swal.fire({
-      title: '¡Éxito!',
-      text: 'Solicitud enviada con éxito',
-      icon: 'success',
-    });
-    $name.value = "";
-    $email.value = "";
-    $phone.value = "";
-    $message.value = "";
-  } else {
+  if (!formIsValid()) {
     Swal.fire({
       title: '¡Error!',
-      text: 'Todos los campos deben estár llenos',
+      text: 'Todos los campos deben estar completos',
       icon: 'error',
     });
+    exit()
   }
+  fetch("/", {
+    method: "POST",
+    body: new FormData($form),
+  })
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      if (data.success) {
+        Swal.fire({
+          title: '¡Éxito!',
+          text: 'Solicitud enviada con éxito',
+          icon: 'success',
+        });
+        $name.value = "";
+        $email.value = "";
+        $phone.value = "";
+        $message.value = "";
+      } else {
+        Swal.fire({
+          title: '¡Error!',
+          text: 'No se pudo enviar el mensaje:' + data.error,
+          icon: 'error',
+        });
+      }
+    })
+    .catch(error => {
+      console.error("Error:", error);
+    });
+  $name.classList.remove("validate-ok")
+  $email.classList.remove("validate-ok")
+  $phone.classList.remove("validate-ok")
+  $message.classList.remove("validate-ok")
 });
 
-function validateName(name) {
-  if (name.length == 0) {
+$name.addEventListener('input', () => {
+  if ($name.value.length == 0) {
     $name.classList.remove("validate-ok")
     $name.classList.add("validate-warning")
   } else {
     $name.classList.remove("validate-warning")
     $name.classList.add("validate-ok")
   }
+})
 
-}
-
-function validateEmail(email) {
+$email.addEventListener('input', () => {
   let mailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g
 
-  if (mailRegex.test(email) == true) {
+  if (mailRegex.test($email.value) == true) {
     $email.classList.remove("validate-warning")
     $email.classList.add("validate-ok")
   } else {
     $email.classList.remove("validate-ok")
     $email.classList.add("validate-warning")
   }
-}
+})
 
-function validatePhone(phone) {
-  let phoneRegex = /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/gm
+$phone.addEventListener('input', (event) => {
+  let phoneRegex = /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/gm;
 
-  if (phoneRegex.test(phone) == true) {
-    $phone.classList.remove("validate-warning")
-    $phone.classList.add("validate-ok")
+  let codigoKey = event.data;
 
+  if (phoneRegex.test($phone.value) == true) {
+    $phone.classList.remove("validate-warning");
+    $phone.classList.add("validate-ok");
   } else {
-    $phone.classList.remove("validate-ok")
-    $phone.classList.add("validate-warning")
+    $phone.classList.remove("validate-ok");
+    $phone.classList.add("validate-warning");
   }
-}
 
-function validateMessage(message) {
-  if (message.length == 0) {
+  if ($phone.value.length >= 0 && $phone.value.length < 15) {
+    if (!isNaN(codigoKey) || codigoKey === '0' || codigoKey === '+') {
+    } else {
+      $phone.value = $phone.value.slice(0, -1);
+    }
+  }
+});
+
+$message.addEventListener('input', () => {
+  if ($message.value.length == 0) {
     $message.classList.remove("validate-ok")
     $message.classList.add("validate-warning")
   } else {
     $message.classList.remove("validate-warning")
     $message.classList.add("validate-ok")
   }
-}
+})
+
+
 
 function formIsValid() {
   return $name.classList.contains('validate-ok') &&
