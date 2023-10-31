@@ -36,6 +36,8 @@ document.getElementById("scrollToTopBtn").addEventListener("click", scrollToTopS
 
 // Validación de formulario
 const $form = document.getElementById('contactForm');
+const $newsletter = document.getElementById('subscribeForm');
+const $newsletterEmail = document.getElementById('SubscribeMail');
 const $name = document.getElementById('name');
 const $email = document.getElementById('mail');
 const $phone = document.getElementById('phone');
@@ -44,21 +46,28 @@ const $message = document.getElementById('message');
 
 $form.addEventListener('submit', function (event) {
   event.preventDefault();
+
+  const overlay = document.getElementById('overlay');
+  const loader = document.getElementById('loader');
+  overlay.style.display = 'block';
+  loader.style.display = 'block';
+
   if (!formIsValid()) {
+    overlay.style.display = 'none';
+    loader.style.display = 'none';
     Swal.fire({
       title: '¡Error!',
       text: 'Todos los campos deben estar completos',
       icon: 'error',
     });
-    exit()
+    return;
   }
-  fetch("/", {
+
+  fetch("/formulario_contacto", {
     method: "POST",
     body: new FormData($form),
   })
-    .then(response => {
-      return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
       if (data.success) {
         Swal.fire({
@@ -70,21 +79,77 @@ $form.addEventListener('submit', function (event) {
         $email.value = "";
         $phone.value = "";
         $message.value = "";
+        overlay.style.display = 'none';
+        loader.style.display = 'none';
       } else {
         Swal.fire({
           title: '¡Error!',
           text: 'No se pudo enviar el mensaje:' + data.error,
           icon: 'error',
         });
+        overlay.style.display = 'none';
+        loader.style.display = 'none';
       }
     })
     .catch(error => {
       console.error("Error:", error);
+      overlay.style.display = 'none';
+      loader.style.display = 'none';
     });
   $name.classList.remove("validate-ok")
   $email.classList.remove("validate-ok")
   $phone.classList.remove("validate-ok")
   $message.classList.remove("validate-ok")
+});
+
+$newsletter.addEventListener('submit', function (event) {
+  event.preventDefault();
+  const overlay = document.getElementById('overlay');
+  const loader = document.getElementById('loader');
+  overlay.style.display = 'block';
+  loader.style.display = 'block';
+
+  if (!$newsletterEmail.classList.contains('validate-ok')) {
+    overlay.style.display = 'none';
+    loader.style.display = 'none';
+    Swal.fire({
+      title: '¡Error!',
+      text: 'Todos los campos deben estar completos',
+      icon: 'error',
+    });
+    return;
+  }
+  fetch("/formulario_boletin", {
+    method: "POST",
+    body: new FormData($newsletter),
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        Swal.fire({
+          title: '¡Éxito!',
+          text: 'Te enviaremos noticias sobre nosotros',
+          icon: 'success',
+        });
+        $newsletterEmail.value = "";
+        overlay.style.display = 'none';
+        loader.style.display = 'none';
+      } else {
+        Swal.fire({
+          title: '¡Error!',
+          text: 'No se pudo unir al boletín:' + data.error,
+          icon: 'error',
+        });
+        overlay.style.display = 'none';
+        loader.style.display = 'none';
+      }
+    })
+    .catch(error => {
+      console.error("Error:", error);
+      overlay.style.display = 'none';
+      loader.style.display = 'none';
+    });
+  $newsletterEmail.classList.remove("validate-ok")
 });
 
 $name.addEventListener('input', () => {
@@ -140,7 +205,17 @@ $message.addEventListener('input', () => {
   }
 })
 
+$newsletterEmail.addEventListener('input', () => {
+  let mailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g
 
+  if (mailRegex.test($newsletterEmail.value) == true) {
+    $newsletterEmail.classList.remove("validate-warning")
+    $newsletterEmail.classList.add("validate-ok")
+  } else {
+    $newsletterEmail.classList.remove("validate-ok")
+    $newsletterEmail.classList.add("validate-warning")
+  }
+})
 
 function formIsValid() {
   return $name.classList.contains('validate-ok') &&

@@ -31,23 +31,24 @@
         <div class="">
             <div class="row">
                 <div class="col-md-7 mx-auto">
-                    <form method="POST" action="" id="contactForm" novalidate>
+                    <form method="POST" action="{{url_for('formulario_contacto')}}" id="contactForm" novalidate>
                         <div class="contact_form-container">
                             <div>
                                 <div>
-                                    <input class="rounded" id="name" type="text" placeholder="Nombre completo"
-                                        maxlength="30" required />
+                                    <input class="rounded" id="name" name="name" type="text"
+                                        placeholder="Nombre completo" maxlength="30" required />
                                 </div>
                                 <div>
-                                    <input class="rounded" id="mail" type="email" placeholder="Email " required />
+                                    <input class="rounded" id="mail" name="mail" type="email" placeholder="Email "
+                                        required />
                                 </div>
                                 <div>
-                                    <input class="rounded" id="phone" type="tel" placeholder="Numero de telefono"
-                                        minlength="7" maxlength="15" />
+                                    <input class="rounded" id="phone" name="phone" type="tel"
+                                        placeholder="Numero de teléfono" minlength="7" maxlength="15" />
                                 </div>
                                 <div>
-                                    <input id="message" type="text" placeholder="Mensaje" class="message_input rounded"
-                                        maxlength="150" />
+                                    <input id="message" name="message" type="text" placeholder="Mensaje"
+                                        class="message_input rounded" maxlength="150" />
                                 </div>
                                 <div class="btn-box">
                                     <button class="rounded" type="submit">
