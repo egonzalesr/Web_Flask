@@ -102,9 +102,10 @@
                     <p>
                         ¡Solo nuestras últimas noticias!
                     </p>
-                    <form action="#">
-                        <input type="email" placeholder="Ingresa tu email">
-                        <button>
+                    <form method="POST" action="{{url_for('formulario_boletin')}}" id="subscribeForm" novalidate>
+                        <input class="rounded" type="email" id="SubscribeMail" name="SubscribeMail"
+                            placeholder="Ingresa tu email">
+                        <button type="submit">
                             Suscribete
                         </button>
                     </form>
