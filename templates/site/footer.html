@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="info_logo">
-                    <a class="navbar-brand" href="{{ url_for('index') }}">
+                    <a class="navbar-brand" href="{{ url_for('landingIndex.index') }}">
                         <span>
                             DigitalMinds
                         </span>
@@ -15,32 +15,32 @@
                     <div class="info_links">
                         <ul>
                             <li>
-                                <a href="{{ url_for('virtualizacion') }}">
+                                <a href="{{ url_for('landingIndex.virtualizacion') }}">
                                     VIRTUALIZACIÓN
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url_for('redes') }}">
+                                <a href="{{ url_for('landingIndex.redes') }}">
                                     REDES
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url_for('computo') }}">
+                                <a href="{{ url_for('landingIndex.computo') }}">
                                     CÓMPUTO
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url_for('datacenter') }}">
+                                <a href="{{ url_for('landingIndex.datacenter') }}">
                                     DATA CENTER
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url_for('server') }}">
+                                <a href="{{ url_for('landingIndex.server') }}">
                                     SERVIDORES
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url_for('tic') }}">
+                                <a href="{{ url_for('landingIndex.tic') }}">
                                     SOPORTE TIC
                                 </a>
                             </li>
@@ -55,12 +55,12 @@
                     </h5>
                     <ul>
                         <li>
-                            <a href="{{ url_for('nosotros') }}">
+                            <a href="{{ url_for('landingIndex.nosotros') }}">
                                 NOSOTROS
                             </a>
                         </li>
                         <li>
-                            <a href="{{ url_for('equipo') }}">
+                            <a href="{{ url_for('landingIndex.equipo') }}">
                                 NUESTRO EQUIPO
                             </a>
                         </li>
@@ -102,7 +102,8 @@
                     <p>
                         ¡Solo nuestras últimas noticias!
                     </p>
-                    <form method="POST" action="{{url_for('formulario_boletin')}}" id="subscribeForm" novalidate>
+                    <form method="POST" action="{{url_for('landingIndex.formulario_boletin')}}" id="subscribeForm"
+                        novalidate>
                         <input class="rounded" type="email" id="SubscribeMail" name="SubscribeMail"
                             placeholder="Ingresa tu email">
                         <button type="submit">
@@ -136,7 +137,7 @@
 <footer class="container-fluid footer_section">
     <p>
         &copy; <span id="currentYear"></span> Todos los derechos reservados
-        <a href="{{ url_for('index') }}">DigitalMinds</a>
+        <a href="{{ url_for('landingIndex.index') }}">DigitalMinds</a>
     </p>
 </footer>
 <!-- footer section -->

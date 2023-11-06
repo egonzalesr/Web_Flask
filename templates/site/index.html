@@ -92,7 +92,7 @@
                         negocio.
                     </p>
                     <div class="btn-box">
-                        <a href="{{ url_for('nosotros') }}">
+                        <a href="{{ url_for('landingIndex.nosotros') }}">
                             Leer Más
                         </a>
                     </div>
@@ -115,7 +115,7 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <a class="index-services-btn" href="{{ url_for('virtualizacion') }}">
+                <a class="index-services-btn" href="{{ url_for('landingIndex.virtualizacion') }}">
                     <div class="box index-services">
                         <div class="img-box">
 
@@ -132,7 +132,7 @@
                 </a>
             </div>
             <div class="col-md-4">
-                <a class="index-services-btn" href="{{ url_for('redes') }}">
+                <a class="index-services-btn" href="{{ url_for('landingIndex.redes') }}">
                     <div class="box index-services">
                         <div class="img-box">
 
@@ -149,7 +149,7 @@
                 </a>
             </div>
             <div class="col-md-4">
-                <a class="index-services-btn" href="{{ url_for('computo') }}">
+                <a class="index-services-btn" href="{{ url_for('landingIndex.computo') }}">
                     <div class="box index-services">
                         <div class="img-box">
 
@@ -168,7 +168,7 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <a class="index-services-btn" href="{{ url_for('datacenter') }}">
+                <a class="index-services-btn" href="{{ url_for('landingIndex.datacenter') }}">
                     <div class="box index-services">
                         <div class="img-box" ;">
                             <img class="index-services-img"
@@ -183,7 +183,7 @@
                 </a>
             </div>
             <div class="col-md-4">
-                <a class="index-services-btn" href="{{ url_for('server') }}">
+                <a class="index-services-btn" href="{{ url_for('landingIndex.server') }}">
                     <div class="box index-services">
                         <div class="img-box">
                             <img class="index-services-img"
@@ -198,7 +198,7 @@
                 </a>
             </div>
             <div class="col-md-4">
-                <a class="index-services-btn" href="{{ url_for('tic') }}">
+                <a class="index-services-btn" href="{{ url_for('landingIndex.tic') }}">
                     <div class="box index-services">
                         <div class="img-box">
                             <img class="index-services-img" src="{{ url_for('static', filename='images/tic-bw.svg') }}"
@@ -286,7 +286,7 @@
             </div>
         </div>
         <div class="btn-box">
-            <a href="{{ url_for('equipo') }}">
+            <a href="{{ url_for('landingIndex.equipo') }}">
                 Ver todo
             </a>
         </div>
@@ -312,7 +312,8 @@
         <div class="">
             <div class="row">
                 <div class="col-md-7 mx-auto">
-                    <form method="POST" action="{{url_for('formulario_contacto')}}" id="contactForm" novalidate>
+                    <form method="POST" action="{{url_for('landingIndex.formulario_contacto')}}" id="contactForm"
+                        novalidate>
                         <div class="contact_form-container">
                             <div>
                                 <div>

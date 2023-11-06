@@ -67,7 +67,7 @@
             <div class="header_bottom">
                 <div class="container-fluid">
                     <nav class="navbar navbar-expand-lg custom_nav-container sticky-top">
-                        <a class="navbar-brand" href="{{ url_for('index') }}">
+                        <a class="navbar-brand" href="{{ url_for('landingIndex.index') }}">
                             <span>
                                 DigitalMinds
                             </span>
@@ -80,18 +80,22 @@
 
                         <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
                             <ul class="navbar-nav  ">
-                                <li class="nav-item {% if request.path == url_for('index') %}active{% endif %}">
-                                    <a class="nav-link" href="{{ url_for('index') }}">Inicio <span
+                                <li
+                                    class="nav-item {% if request.path == url_for('landingIndex.index') %}active{% endif %}">
+                                    <a class="nav-link" href="{{ url_for('landingIndex.index') }}">Inicio <span
                                             class="sr-only">(current)</span></a>
                                 </li>
-                                <li class="nav-item {% if request.path == url_for('nosotros') %}active{% endif %}">
-                                    <a class="nav-link" href="{{ url_for('nosotros') }}"> Nosotros</a>
+                                <li
+                                    class="nav-item {% if request.path == url_for('landingIndex.nosotros') %}active{% endif %}">
+                                    <a class="nav-link" href="{{ url_for('landingIndex.nosotros') }}"> Nosotros</a>
                                 </li>
-                                <li class="nav-item {% if request.path == url_for('equipo') %}active{% endif %}">
-                                    <a class="nav-link" href="{{ url_for('equipo') }}"> Equipo</a>
+                                <li
+                                    class="nav-item {% if request.path == url_for('landingIndex.equipo') %}active{% endif %}">
+                                    <a class="nav-link" href="{{ url_for('landingIndex.equipo') }}"> Equipo</a>
                                 </li>
-                                <li class="nav-item {% if request.path == url_for('contacto') %}active{% endif %}">
-                                    <a class="nav-link" href="{{ url_for('contacto') }}">Contactanos</a>
+                                <li
+                                    class="nav-item {% if request.path == url_for('landingIndex.contacto') %}active{% endif %}">
+                                    <a class="nav-link" href="{{ url_for('landingIndex.contacto') }}">Contactanos</a>
                                 </li>
                             </ul>
                         </div>

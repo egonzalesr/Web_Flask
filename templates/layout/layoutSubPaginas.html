@@ -49,7 +49,7 @@
                 <h2>Servicios</h2>
             </div>
             <div class="col-md-2 text-center mt-2" {% if request.path=="/virtualizacion" %}hidden{% endif %}>
-                <a class="index-services-btn " href="{{ url_for('virtualizacion') }}">
+                <a class="index-services-btn " href="{{ url_for('landingIndex.virtualizacion') }}">
                     <div class="box index-services sub-pages-btn">
                         <div class="img-box">
                             <img class="subpage-img"
@@ -63,7 +63,7 @@
                 </a>
             </div>
             <div class="col-md-2 mt-2" {% if request.path=="/redes" %}hidden{% endif %}>
-                <a class="index-services-btn " href="{{ url_for('redes') }}">
+                <a class="index-services-btn " href="{{ url_for('landingIndex.redes') }}">
                     <div class="box index-services text-center sub-pages-btn">
                         <div class="img-box">
                             <img class="subpage-img" src="{{ url_for('static', filename='images/networking-bw.svg') }}"
@@ -76,7 +76,7 @@
                 </a>
             </div>
             <div class="col-md-2 mt-2" {% if request.path=="/computo" %}hidden{% endif %}>
-                <a class="index-services-btn " href="{{ url_for('computo') }}">
+                <a class="index-services-btn " href="{{ url_for('landingIndex.computo') }}">
                     <div class="box index-services text-center sub-pages-btn">
                         <div class="img-box">
                             <img class="subpage-img" src="{{ url_for('static', filename='images/computing-bw.svg') }}"
@@ -89,7 +89,7 @@
                 </a>
             </div>
             <div class="col-md-2 mt-2" {% if request.path=="/datacenter" %}hidden{% endif %}>
-                <a class="index-services-btn " href="{{ url_for('datacenter') }}">
+                <a class="index-services-btn " href="{{ url_for('landingIndex.datacenter') }}">
                     <div class="box index-services text-center sub-pages-btn">
                         <div class="img-box" ;">
                             <img class="subpage-img"
@@ -102,11 +102,11 @@
                 </a>
             </div>
             <div class="col-md-2 mt-2" {% if request.path=="/server" %}hidden{% endif %}>
-                <a class="index-services-btn " href="{{ url_for('server') }}">
+                <a class="index-services-btn " href="{{ url_for('landingIndex.server') }}">
                     <div class="box index-services text-center sub-pages-btn">
                         <div class="img-box" ;">
-                            <img class="subpage-img"
-                                src="{{ url_for('static', filename='images/datacenter-color.svg') }}" alt="" />
+                            <img class="subpage-img" src="{{ url_for('static', filename='images/server-bw.svg') }}"
+                                alt="" />
                         </div>
                         <h6 class="mt-1">
                             Servidores
@@ -115,7 +115,7 @@
                 </a>
             </div>
             <div class="col-md-2 mt-2" {% if request.path=="/tic" %}hidden{% endif %}>
-                <a class="index-services-btn" href="{{ url_for('tic') }}">
+                <a class="index-services-btn" href="{{ url_for('landingIndex.tic') }}">
                     <div class="box index-services text-center sub-pages-btn">
                         <div class="img-box">
                             <img class="subpage-img" src="{{ url_for('static', filename='images/tic-bw.svg') }}"
