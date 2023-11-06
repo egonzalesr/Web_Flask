@@ -1,4 +1,4 @@
-{% extends 'site/plantillaSubPaginas.html' %}
+{% extends 'layout/layoutSubPaginas.html' %}
 
 {% block imgInfo %}
 <img class="img-fluid shadow-img" src="{{ url_for('static', filename='images/server-info.png') }}" alt="" />
@@ -15,71 +15,4 @@ impulsan la eficiencia y el éxito de su empresa.
 
 <img class="img-fluid rounded shadow-img" src="{{ url_for('static', filename='images/server-description-img.jpg') }}"
     alt="">
-{% endblock %}
-
-<!--More services-->
-
-{% block moreServices %}
-<div class="col-md-2 text-center mt-2">
-    <a class="index-services-btn " href="{{ url_for('virtualizacion') }}">
-        <div class="box index-services sub-pages-btn">
-            <div class="img-box">
-                <img class="subpage-img" src="{{ url_for('static', filename='images/virtualization-bw.svg') }}"
-                    alt="" />
-
-            </div>
-            <h6 class="mt-1">
-                Virtualización
-            </h6>
-        </div>
-    </a>
-</div>
-<div class="col-md-2 mt-2">
-    <a class="index-services-btn " href="{{ url_for('redes') }}">
-        <div class="box index-services text-center sub-pages-btn">
-            <div class="img-box">
-                <img class="subpage-img" src="{{ url_for('static', filename='images/networking-bw.svg') }}" alt="" />
-            </div>
-            <h6 class="mt-1">
-                Redes
-            </h6>
-        </div>
-    </a>
-</div>
-<div class="col-md-2 mt-2">
-    <a class="index-services-btn " href="{{ url_for('computo') }}">
-        <div class="box index-services text-center sub-pages-btn">
-            <div class="img-box">
-                <img class="subpage-img" src="{{ url_for('static', filename='images/computing-bw.svg') }}" alt="" />
-            </div>
-            <h6 class="mt-1">
-                Cómputo
-            </h6>
-        </div>
-    </a>
-</div>
-<div class="col-md-2 mt-2">
-    <a class="index-services-btn " href="{{ url_for('datacenter') }}">
-        <div class="box index-services text-center sub-pages-btn">
-            <div class="img-box" ;">
-                <img class="subpage-img" src="{{ url_for('static', filename='images/datacenter-color.svg') }}" alt="" />
-            </div>
-            <h6 class="mt-1">
-                Data Center
-            </h6>
-        </div>
-    </a>
-</div>
-<div class="col-md-2 mt-2">
-    <a class="index-services-btn" href="{{ url_for('tic') }}">
-        <div class="box index-services text-center sub-pages-btn">
-            <div class="img-box">
-                <img class="subpage-img" src="{{ url_for('static', filename='images/tic-bw.svg') }}" alt="" />
-            </div>
-            <h6 class="mt-1">
-                Soporte TIC
-            </h6>
-        </div>
-    </a>
-</div>
 {% endblock %}
