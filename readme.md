@@ -25,7 +25,7 @@
      ```
 
 4. Instalar dependencias:
-    - pip install > requirements.txt
+    - pip install -r requirements.txt
 
 5. Crear un archivo .env con las variables para el servidor SMTP y un Secret Key:
     - SECRET_KEY        
